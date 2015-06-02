@@ -1,0 +1,47 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.box{
+	width: 600px;
+	margin: 100px auto 0 auto;
+}
+.box ul li{
+	/*float: left;*/
+	display: inline-block;
+	margin-bottom:20px; 
+}
+li a{
+	width:60px;
+	height: 20px;
+	background-color: #cccccc;
+	color: tomato;
+	text-decoration: none;
+	font-weight: bold;
+}
+li a:hover{
+	text-decoration: underline;
+}
+#slideshow{
+	width: 100px;
+	height: 100px;
+	margin-left: 50px;
+	overflow: hidden;
+	position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
