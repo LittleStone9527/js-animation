@@ -1,6 +1,11 @@
 function moveMsg(elemId,finalX,finalY,interval){
 	if (!document.getElementById) return false;
 	var elem = document.getElementById(elemId);
+	//如果函数在开始执行时，就已经有一个movement属性，就应该用clearTimeout对函数进行复位。
+	if(elem.movement){
+		clearTimeout(elem.movement);
+	}
+
 	var disX = parseInt(elem.style.left);
 	// console.log(disX);
 	var disY = parseInt(elem.style.top);
@@ -20,7 +25,9 @@ function moveMsg(elemId,finalX,finalY,interval){
 	var newY1 = elem.style.top = disY + 'px';
 	// console.log(newY1);
 	var repeat = "moveMsg('"+elemId+"', "+finalX+", "+finalY+", "+interval+")";
-	movement = setTimeout(repeat,interval);
+	// movement设置为正在被移动的那个元素（elem）的属性，
+	// 这样就可以测试它（正在被移动的那个元素（elem）的属性）是否存在，如果存在就使用clearTimeout对函数进行复位。
+	elem.movement = setTimeout(repeat,interval);
 	//movement = setTimeout("moveMsg()",10);
 }
 
@@ -62,7 +69,7 @@ function addonloadEvent(func){
 }
 
 addonloadEvent(posMsg);
-addonloadEvent(moveMsg);
+// addonloadEvent(moveMsg);
 
 
 
