@@ -7,12 +7,12 @@ function moveMsg(elemId,finalX,finalY,interval){
 		clearTimeout(elem.movement);
 	}
 
-	// if (!elem.style.left) {
-	// 	elem.style.left = "0px";
-	// }
-	// if (!elem.style.top) {
-	// 	elem.style.top = "0px";
-	// }
+	if (!elem.style.left) {
+		elem.style.left = "0px";
+	}
+	if (!elem.style.top) {
+		elem.style.top = "0px";
+	}
 
 	var disX = parseInt(elem.style.left);
 	// console.log(disX);
@@ -53,6 +53,7 @@ function moveMsg(elemId,finalX,finalY,interval){
 }
 
 function posMsg(){
+	if (!document.getElementById("pic")) return false;
 	var oImg = document.getElementById("pic");
 	oImg.style.position = "absolute";
 	oImg.style.left = "0px";
@@ -62,7 +63,7 @@ function posMsg(){
 	// console.log(alinks);
 	alinks[0].onmouseover = function(){
 		moveMsg("pic",0,0,10);
-		console.log("ok");
+		// console.log("ok");
 	}
 	alinks[1].onmouseover = function(){
 		moveMsg("pic",-100,0,10);
