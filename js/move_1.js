@@ -14,11 +14,24 @@ function moveMsg(elemId,finalX,finalY,interval){
 //如果div到达目的地，则退出这个函数。
 	if (disX == finalX && disY == finalY) { return true;}
 	//如果没到达目的地，则继续执行下面的代码
-	if(disX < finalX){disX++;}
-	if(disX > finalX){disX--;}
+	if(disX < finalX){
+		// disX++;
+		var distance = Math.ceil((finalX - disX)/10);
+		disX = disX + distance; 
+	}
+	if(disX > finalX){
+		var distance = Math.floor((disX - finalX)/10);
+		disX = disX - distance;
+	}
 	
-	if(disY < finalY){disY++;}
-	if(disY > finalY){disY--;}
+	if(disY < finalY){
+		var distance = Math.ceil((finalY - disY)/10);
+		disY = disY + distance;
+	}
+	if(disY > finalY){
+		var distance = Math.floor((disY - finalY)/10);
+		disY = disY - distance;
+	}
 
 	var newX1 = elem.style.left = disX + 'px';
 	// console.log(newX1);
