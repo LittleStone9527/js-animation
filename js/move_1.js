@@ -1,10 +1,18 @@
 function moveMsg(elemId,finalX,finalY,interval){
 	if (!document.getElementById) return false;
+	if (!document.getElementById(elemId)) return false;
 	var elem = document.getElementById(elemId);
 	//如果函数在开始执行时，就已经有一个movement属性，就应该用clearTimeout对函数进行复位。
 	if(elem.movement){
 		clearTimeout(elem.movement);
 	}
+
+	// if (!elem.style.left) {
+	// 	elem.style.left = "0px";
+	// }
+	// if (!elem.style.top) {
+	// 	elem.style.top = "0px";
+	// }
 
 	var disX = parseInt(elem.style.left);
 	// console.log(disX);
@@ -15,12 +23,12 @@ function moveMsg(elemId,finalX,finalY,interval){
 	if (disX == finalX && disY == finalY) { return true;}
 	//如果没到达目的地，则继续执行下面的代码
 	if(disX < finalX){
-		// disX++;
+		// 当disX与finalX之间的距离小于10的时候，distance将小于1，而我们不可能将一个元素移动不到一个像素的距离，这是需要用Math.ceil，来解决。
 		var distance = Math.ceil((finalX - disX)/10);
 		disX = disX + distance; 
 	}
 	if(disX > finalX){
-		var distance = Math.floor((disX - finalX)/10);
+		var distance = Math.ceil((disX - finalX)/10);
 		disX = disX - distance;
 	}
 	
@@ -29,7 +37,7 @@ function moveMsg(elemId,finalX,finalY,interval){
 		disY = disY + distance;
 	}
 	if(disY > finalY){
-		var distance = Math.floor((disY - finalY)/10);
+		var distance = Math.ceil((disY - finalY)/10);
 		disY = disY - distance;
 	}
 
