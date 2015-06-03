@@ -15,6 +15,8 @@
 li a{
 	width:60px;
 	height: 20px;
+	display:block;
+	text-align: center;
 	background-color: #cccccc;
 	color: tomato;
 	text-decoration: none;
@@ -30,7 +32,9 @@ li a:hover{
 	overflow: hidden;
 	position: relative;
 }
-
+#pic{
+	position: absolute;
+}
 
 
 
